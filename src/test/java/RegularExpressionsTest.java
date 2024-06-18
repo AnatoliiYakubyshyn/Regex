@@ -1,7 +1,7 @@
-import org.example.RegularExpressions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.example.RegularExpressions;
 
 import java.util.List;
 
