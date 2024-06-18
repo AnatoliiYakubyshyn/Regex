@@ -27,6 +27,11 @@ public class RegularExpressionsTest {
         Assert.assertEquals(RegularExpressions.task2(s), expectedResult);
     }
 
+    @Test
+    public void testTask4() {
+        Assert.assertEquals(RegularExpressions.task4("ignore me [extract:me] ignore me!"),"extract:me");
+    }
+
     @DataProvider(name = "task2dp")
     public static Object[][] task2dp() {
         return new Object[][]{

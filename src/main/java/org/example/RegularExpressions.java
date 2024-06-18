@@ -20,4 +20,13 @@ public class RegularExpressions {
         }
         return  list;
     }
+
+    public static String task4(String s) {
+        Pattern pattern = Pattern.compile("\\[.+\\]");
+        Matcher matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            return s.substring(matcher.start()+1, matcher.end()-1);
+        }
+        return "";
+    }
 }
