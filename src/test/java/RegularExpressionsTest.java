@@ -32,6 +32,13 @@ public class RegularExpressionsTest {
         Assert.assertEquals(RegularExpressions.task4("ignore me [extract:me] ignore me!"), "extract:me");
     }
 
+    @Test
+    public void testTask5() {
+        Assert.assertEquals(RegularExpressions.task5("qqqqqqqweeeeerrtyyyyyyUUUUuuiTT"),"qwertyuit");
+        Assert.assertEquals(RegularExpressions.task5("qQ"),"q");
+        Assert.assertEquals(RegularExpressions.task5("q"),"q");
+    }
+
     @Test(dataProvider = "dp3")
     public void testTask3(String s, String key, String expectedRes) {
         Assert.assertEquals(RegularExpressions.task3(s, key), expectedRes);
