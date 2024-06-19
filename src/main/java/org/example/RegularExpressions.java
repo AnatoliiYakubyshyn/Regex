@@ -11,21 +11,31 @@ public class RegularExpressions {
     }
 
     public static List<String> task2(String s) {
-        String replacedCharsStr = s.replaceAll("[+() -]","");
+        String replacedCharsStr = s.replaceAll("[+() -]", "");
         Pattern pattern = Pattern.compile("1\\d{10}");
         Matcher matcher = pattern.matcher(replacedCharsStr);
         ArrayList<String> list = new ArrayList<>();
         while (matcher.find()) {
             list.add(replacedCharsStr.substring(matcher.start(), matcher.end()));
         }
-        return  list;
+        return list;
     }
 
     public static String task4(String s) {
         Pattern pattern = Pattern.compile("\\[.+\\]");
         Matcher matcher = pattern.matcher(s);
         if (matcher.find()) {
-            return s.substring(matcher.start()+1, matcher.end()-1);
+            return s.substring(matcher.start() + 1, matcher.end() - 1);
+        }
+        return "";
+    }
+
+    public static String task3(String s, String key) {
+        Pattern pattern = Pattern.compile("\"" + key + "\":.*?[,}]");
+        Matcher matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            return s.substring(matcher.start(), matcher.end()-1).replaceAll("[' :\"]","").
+                    replaceAll(key,"");
         }
         return "";
     }

@@ -29,18 +29,32 @@ public class RegularExpressionsTest {
 
     @Test
     public void testTask4() {
-        Assert.assertEquals(RegularExpressions.task4("ignore me [extract:me] ignore me!"),"extract:me");
+        Assert.assertEquals(RegularExpressions.task4("ignore me [extract:me] ignore me!"), "extract:me");
+    }
+
+    @Test(dataProvider = "dp3")
+    public void testTask3(String s, String key, String expectedRes) {
+        Assert.assertEquals(RegularExpressions.task3(s, key), expectedRes);
     }
 
     @DataProvider(name = "task2dp")
     public static Object[][] task2dp() {
         return new Object[][]{
                 {"Contact us at +1 (123) 456-7890 or 1-777-123-4567",
-                        List.of("11234567890","17771234567")
+                        List.of("11234567890", "17771234567")
                 },
                 {"Contact us at +1 (123) 456-7890 1-777-123-4567",
-                        List.of("11234567890","17771234567")
+                        List.of("11234567890", "17771234567")
                 }
+        };
+    }
+
+    @DataProvider(name = "dp3")
+    public Object[][] dataProviderTask3() {
+        return new Object[][]{
+                {"{\"key1\": 11, \"key2\": 'asd', \"key3\": 342}", "key3", "342"},
+                {"{\"key1\": 11, \"key2\": 'asd', \"key3\": 342}", "key1", "11"},
+                {"{\"key1\": 11, \"key2\": 'asd', \"key3\": 342}", "key2", "asd"},
         };
     }
 }
