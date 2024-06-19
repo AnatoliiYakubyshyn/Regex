@@ -31,11 +31,10 @@ public class RegularExpressions {
     }
 
     public static String task3(String s, String key) {
-        Pattern pattern = Pattern.compile("\"" + key + "\":.*?[,}]");
+        Pattern pattern = Pattern.compile("(?<=\""+key+"\":).*?(?=[,}])");
         Matcher matcher = pattern.matcher(s);
         if (matcher.find()) {
-            return s.substring(matcher.start(), matcher.end()-1).replaceAll("[' :\"]","").
-                    replaceAll(key,"");
+            return s.substring(matcher.start(), matcher.end()).trim().replaceAll("'","");
         }
         return "";
     }
